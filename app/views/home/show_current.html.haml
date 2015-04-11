@@ -1,12 +1,15 @@
 = link_to 'Change Color', 'javascript:void(0)', onclick: 'ChangeColor();'
 .block
-  %div{id: "#{@post.xpath(".//div[@id='content']//div[@class='content']/article").first.attributes['id'].value}"}
-    .category
+  - id = @post.xpath(".//div[@id='content']//div[@class='content']/article").first.attributes['id'].value
+  %div{id: id}
+    %h2
+      #{@post.xpath(".//div[@id='content']//h1[@class='title']").text}
+    %h3
       Category: #{@post.xpath(".//div[@id='content']//h2[@class='category']/a").text}
-    .title
-      Title: #{@post.xpath(".//div[@id='content']//h1[@class='title']").text}
-    .content
-      Content: #{@post.xpath(".//div[@id='content']//h1[@class='title']").text}
+    %h4
+      #{@post.xpath(".//div[@id='content']//h1[@class='title']").text}
     = image_tag @post.xpath(".//div[@id='content']//figure[@class='field-main-image']/img").first.attributes["src"].value.gsub('/sites/', 'http://'), class: 'center-block'
-    %p
-      #{@post.xpath(".//div[@id='content']//div[@class='content']//div[@class='content']//p").text}
+    %h5
+      %p{style: 'text-align: justify'}
+        #{@post.xpath(".//div[@id='content']//div[@class='content']//div[@class='content']//p").text}
+  = render 'add_control_buttons', id: id
