@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :home, only: [:index, :show]
   resources :users, only: [:new, :create]
 
+  get '/:url/show_current' => 'home#show_current', as: :show_current
   root 'sessions#login'
   get  'sign_up' => 'users#new'
   post 'users' => 'users#create'

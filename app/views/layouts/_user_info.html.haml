@@ -1,0 +1,7 @@
+.user_info
+  - if current_user
+    = current_user.name
+    = current_user.email
+    %span.v-bar
+      &#124
+    = link_to "Exit", sessions_logout_path

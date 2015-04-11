@@ -15,3 +15,14 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+
+function ChangeColor() {
+    if ($('.block').hasClass('beige-brown')) {
+        $('.block').removeClass('beige-brown');
+        $('.block').addClass('black-light');
+    } else {
+        $('.block').addClass('beige-brown');
+        $('.block').removeClass('black-light');
+    }
+}

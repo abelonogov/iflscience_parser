@@ -1,0 +1,9 @@
+- @doc.xpath('//div[@class="teaser-list"]/article[starts-with(@id, "node-")]').each do |node|
+  %div{id: "#{node.attributes['id'].value}"}
+    .category
+      Category: #{node.xpath(".//h2[@class='category']/a").text}
+    .title
+      Title: 
+      = link_to node.xpath(".//h1").text, show_current_url(url: node.xpath(".//h1/a").first.attributes['href'].value)
+    .content
+      Content: #{node.xpath(".//div[@class='content']/p").text}

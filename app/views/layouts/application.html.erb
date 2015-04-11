@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div >
 <div id = "content">
+  <div class = "pull-right">
+    <%= render 'layouts/user_info' %>
+  </div>
+  <div class="clearfix"></div>
   <%= yield %>
 </div>
 
