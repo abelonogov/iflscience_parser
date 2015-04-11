@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :home, only: [:index, :show]
   resources :users, only: [:new, :create]
 
+  post 'article_add' => 'favorites#create'
+  delete 'article_delete' => 'favorites#delete'
+
   get '/:url/show_current' => 'home#show_current', as: :show_current
   root 'sessions#login'
   get  'sign_up' => 'users#new'

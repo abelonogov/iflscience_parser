@@ -7,5 +7,5 @@
       Category: #{node.xpath(".//h2[@class='category']/a").text}
     %h4
       #{node.xpath(".//div[@class='content']/p").text}
-  = render 'add_control_buttons', id: id
+    = render 'add_control_buttons', id: id
   %hr
