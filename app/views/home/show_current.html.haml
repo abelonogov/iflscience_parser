@@ -10,6 +10,6 @@
       #{@post.xpath(".//div[@id='content']//h1[@class='title']").text}
     = image_tag @post.xpath(".//div[@id='content']//figure[@class='field-main-image']/img").first.attributes["src"].value.gsub('/sites/', 'http://'), class: 'center-block'
     %h5
-      %p{style: 'text-align: justify'}
-        #{@post.xpath(".//div[@id='content']//div[@class='content']//div[@class='content']//p").text}
+      - @post.xpath(".//div[@class='content']//p").each do |p|
+        = raw(p)
     = render 'add_control_buttons', id: id

@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   post 'article_add' => 'favorites#create'
   delete 'article_delete' => 'favorites#delete'
+  get 'show_all' => 'favorites#index'
 
   get '/:url/show_current' => 'home#show_current', as: :show_current
+  get '/:url/show_category' => 'home#show_category', as: :show_category
   root 'sessions#login'
   get  'sign_up' => 'users#new'
   post 'users' => 'users#create'

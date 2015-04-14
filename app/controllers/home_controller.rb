@@ -7,6 +7,7 @@ class HomeController < ApplicationController
     @post = Nokogiri::HTML(open("http://iflscience.com#{params[:url]}/"))
   end
 
-  def show
+  def show_category
+    @doc = Nokogiri::HTML(open("http://iflscience.com#{params[:url]}/"))
   end
 end

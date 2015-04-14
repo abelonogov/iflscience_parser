@@ -1,0 +1,9 @@
+- @doc.xpath('//article[starts-with(@id, "node-")]').each do |node|
+  - id = node.attributes['id'].value
+  %div{id: id}
+    %h2
+      = link_to node.xpath(".//h1").text, show_current_url(url: node.xpath(".//h1/a").first.attributes['href'].value)
+    %h4
+      #{node.xpath(".//div[@class='content']/p").text}
+    = render 'add_control_buttons', id: id
+  %hr
